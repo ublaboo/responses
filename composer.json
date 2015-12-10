@@ -1,0 +1,34 @@
+{
+	"name": "ublaboo/responses",
+	"type": "library",
+	"description": "Additional responses for Nette Framework",
+	"keywords": ["responses", "nette", "csv", "image", "json"],
+	"homepage": "http://ublaboo.paveljanda.com/responses",
+	"license": ["MIT"],
+	"support": {
+		"issues": "https://github.com/ublaboo/responses/issues"
+	},
+	"authors": [
+		{
+			"name": "Pavel Janda",
+			"homepage": "http://paveljanda.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Ublaboo\\Responses\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Ublaboo\\Responses\\Tests\\": "tests"
+		}
+	},
+	"require": {
+		"nette/http"  : "~2.3.0",
+		"nette/utils" : "~2.3.0",
+	},
+	"require-test": {
+		"nette/tester": "~1.6.1"
+	}
+}
