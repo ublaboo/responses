@@ -55,7 +55,7 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 	public function __construct(
 		$data,
 		$name = 'export.csv',
-		$output_encoding = 'windows-1250',
+		$output_encoding = 'utf-8', # may be often windows-1250 on windws machines
 		$delimiter = ';'
 	) {
 		if (strpos($name, '.csv') === FALSE) {
@@ -111,7 +111,11 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 		$delimiter = '"' . $this->delimiter . '"';
 
 		foreach ($this->data as $row) {
-			echo(iconv('UTF-8', $this->output_encoding, '"' . implode($delimiter, (array) $row) . '"'));
+			if (strtolower($this->output_encoding) == 'utf-8') {
+				echo('"' . implode($delimiter, (array) $row) . '"');
+			} else {
+				echo(iconv('UTF-8', $this->output_encoding, '"' . implode($delimiter, (array) $row) . '"'));
+			}
 
 			echo "\r\n";
 		}
