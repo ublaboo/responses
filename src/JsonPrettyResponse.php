@@ -15,6 +15,7 @@ use Nette;
  */
 class JsonPrettyResponse extends Nette\Application\Responses\JsonResponse
 {
+
 	/**
 	 * {inheritDoc}
 	 */
