@@ -9,11 +9,9 @@
 namespace Ublaboo\Responses;
 
 use Nette,
-	Nette\Http\IRequest,
-	Nette\Http\IResponse,
 	Nette\Utils\Image;
 
-class ImageResponse extends Nette\Object implements IResponse
+class ImageResponse extends Nette\Object implements Nette\Application\IResponse
 {
 
 	/**
@@ -33,11 +31,12 @@ class ImageResponse extends Nette\Object implements IResponse
 		$this->image = $image;
 	}
 
+
 	/**
 	 * @param \Nette\Http\IRequest
 	 * @param \Nette\Http\IResponse
 	 */
-	public function send(IRequest $httpRequest, IResponse $httpResponse)
+	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse)
 	{
 		if ($this->image instanceof Nette\Utils\Image) {
 			$image = $this->image;
@@ -47,4 +46,5 @@ class ImageResponse extends Nette\Object implements IResponse
 
 		$image->send();
 	}
+
 }
