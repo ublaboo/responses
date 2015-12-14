@@ -27,8 +27,5 @@
 	"require": {
 		"nette/http"  : "~2.3.0",
 		"nette/utils" : "~2.3.0"
-	},
-	"require-test": {
-		"nette/tester": "~1.6.1"
 	}
 }
