@@ -1,3 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/ublaboo/responses/v/stable)](https://packagist.org/packages/ublaboo/responses)
+[![License](https://poser.pugx.org/ublaboo/responses/license)](https://packagist.org/packages/ublaboo/responses)
+[![Total Downloads](https://poser.pugx.org/ublaboo/responses/downloads)](https://packagist.org/packages/ublaboo/responses)
+
 Responses
 =========
 
