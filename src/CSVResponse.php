@@ -52,6 +52,12 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 	];
 
 
+	/**
+	 * @param array           $data
+	 * @param string          $name
+	 * @param string          $output_encoding
+	 * @param string          $delimiter
+	 */
 	public function __construct(
 		$data,
 		$name = 'export.csv',
@@ -71,6 +77,8 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 
 	/**
 	 * Sends response to output.
+	 * @param  Nette\Http\IRequest  $httpRequest
+	 * @param  Nette\Http\IResponse $httpResponse
 	 * @return void
 	 */
 	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse)
