@@ -21,7 +21,7 @@ class JsonPrettyResponse extends Nette\Application\Responses\JsonResponse
 	 */
 	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse)
 	{
-		$httpResponse->setContentType($this->contentType);
+		$httpResponse->setContentType($this->contentType, 'utf-8');
 		$httpResponse->setExpiration(FALSE);
 
 		echo Nette\Utils\Json::encode($this->payload, Nette\Utils\Json::PRETTY);
