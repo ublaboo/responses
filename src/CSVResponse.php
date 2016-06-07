@@ -38,6 +38,11 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 	protected $output_encoding;
 
 	/**
+	 * @var boolean
+	 */
+	protected $include_bom;
+
+	/**
 	 * @var string
 	 */
 	protected $name;
@@ -61,8 +66,9 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 	public function __construct(
 		$data,
 		$name = 'export.csv',
-		$output_encoding = 'utf-8', # may be often windows-1250 on windws machines
-		$delimiter = ';'
+		$output_encoding = 'utf-8', # may be often windows-1250 on windows machines
+		$delimiter = ';',
+		$include_bom = FALSE
 	) {
 		if (strpos($name, '.csv') === FALSE) {
 			$name = "$name.csv";
@@ -72,6 +78,7 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 		$this->delimiter = $delimiter;
 		$this->data = $data;
 		$this->output_encoding = $output_encoding;
+		$this->include_bom = $include_bom;
 	}
 
 
@@ -99,8 +106,8 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 		 * Set Content-Disposition header
 		 */
 		$httpResponse->setHeader('Content-Disposition', 'attachment'
-				. '; filename="' . $this->name . '"');
-				/*. '; filename*=' . $this->output_encoding . '\'\'' . rawurlencode($this->name));*/
+			. '; filename="' . $this->name . '"');
+		/*. '; filename*=' . $this->output_encoding . '\'\'' . rawurlencode($this->name));*/
 
 		/**
 		 * Set other headers
@@ -116,6 +123,9 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 		/**
 		 * Output data
 		 */
+		if($this->include_bom && strtolower($this->output_encoding) == 'utf-8'){
+			echo  b"\xEF\xBB\xBF";
+		}
 		$delimiter = '"' . $this->delimiter . '"';
 
 		foreach ($this->data as $row) {
