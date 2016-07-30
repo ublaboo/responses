@@ -9,12 +9,35 @@
 namespace Ublaboo\Responses;
 
 use Nette;
+use Nette\Application;
 
 /**
  * Add JSON_PRETTY_PRINT option to Nette\Application\Responses\JsonResponse
  */
 class JsonPrettyResponse extends Nette\Application\Responses\JsonResponse
 {
+
+	private $code = Nette\Http\IResponse::S200_OK;
+
+
+	/**
+	 * @param int $code
+	 * @return void
+	 */
+	public function setCode($code)
+	{
+		$this->code = $code;
+	}
+
+
+	/**
+	 * @return int
+	 */
+	public function getCode()
+	{
+		return $this->code;
+	}
+
 
 	/**
 	 * {inheritDoc}
@@ -23,6 +46,7 @@ class JsonPrettyResponse extends Nette\Application\Responses\JsonResponse
 	{
 		$httpResponse->setContentType($this->contentType, 'utf-8');
 		$httpResponse->setExpiration(FALSE);
+		$httpResponse->setCode($this->code);
 
 		echo Nette\Utils\Json::encode($this->payload, Nette\Utils\Json::PRETTY);
 	}
