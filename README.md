@@ -17,3 +17,7 @@ Output image
 ## JsonPrettyResponse
 
 Output normal json response, just more readable..
+
+## PSR7StreamResponse
+
+Output contents of PSR7 stream
