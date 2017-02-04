@@ -88,7 +88,7 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 	 * @param  Nette\Http\IResponse $httpResponse
 	 * @return void
 	 */
-	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse)
+	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse): void
 	{
 		/**
 		 * Disable tracy bar

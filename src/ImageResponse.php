@@ -36,7 +36,7 @@ class ImageResponse extends Nette\Object implements Nette\Application\IResponse
 	 * @param \Nette\Http\IRequest
 	 * @param \Nette\Http\IResponse
 	 */
-	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse)
+	public function send(Nette\Http\IRequest $httpRequest, Nette\Http\IResponse $httpResponse): void
 	{
 		if ($this->image instanceof Nette\Utils\Image) {
 			$image = $this->image;

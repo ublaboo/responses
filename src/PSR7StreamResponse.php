@@ -84,7 +84,7 @@ final class PSR7StreamResponse implements \Nette\Application\IResponse
 	 * @param IRequest   $request
 	 * @param IResponse  $response
 	 */
-	public function send(IRequest $request, IResponse $response)
+	public function send(IRequest $request, IResponse $response): void
 	{
 		// Set response headers for the file download
 		$response->setHeader('Content-Length', $this->stream->getSize());

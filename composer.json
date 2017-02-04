@@ -25,8 +25,9 @@
 		}
 	},
 	"require": {
-		"nette/http"  : "^2.3|^2.4",
-		"nette/utils" : "^2.3|^2.4"
+		"nette/application"  : "^3.0",
+		"nette/http"  : "^3.0",
+		"nette/utils" : "^3.0"
 	},
 	"suggest": {
 		"psr/http-message": "Allows usage of PSR7 stream response."
