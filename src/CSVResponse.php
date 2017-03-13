@@ -129,6 +129,11 @@ class CSVResponse extends Nette\Object implements Nette\Application\IResponse
 		$delimiter = '"' . $this->delimiter . '"';
 
 		foreach ($this->data as $row) {
+
+                        $row = array_map(function($value) { 
+                            return str_replace('"', '""', $value);
+                        }, $row);
+
 			if (strtolower($this->output_encoding) == 'utf-8') {
 				echo('"' . implode($delimiter, (array) $row) . '"');
 			} else {
