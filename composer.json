@@ -3,7 +3,7 @@
 	"type": "library",
 	"description": "Additional responses for Nette Framework",
 	"keywords": ["responses", "nette", "csv", "image", "json"],
-	"homepage": "http://ublaboo.paveljanda.com/responses",
+	"homepage": "https://ublaboo.org/responses",
 	"license": ["MIT"],
 	"support": {
 		"issues": "https://github.com/ublaboo/responses/issues"
