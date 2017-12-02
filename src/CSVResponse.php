@@ -14,8 +14,10 @@ use Nette;
 /**
  * CSV file download response
  */
-class CSVResponse extends Nette\Object implements Nette\Application\IResponse
+class CSVResponse implements Nette\Application\IResponse
 {
+
+	use Nette\SmartObject;
 
 	/**
 	 * @var string
