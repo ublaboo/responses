@@ -6,6 +6,8 @@
 Responses
 =========
 
+**ABANDONED! Use [contribute/application](https://github.com/contributte/application) instead.**
+
 ## CSVResponse
 
 Output CSV response from given data
