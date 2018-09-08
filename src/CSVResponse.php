@@ -134,7 +134,7 @@ class CSVResponse implements Nette\Application\IResponse
 			if (strtolower($this->output_encoding) == 'utf-8') {
 				echo('"' . implode($delimiter, (array) $row) . '"');
 			} else {
-				echo(iconv('UTF-8', $this->output_encoding, '"' . implode($delimiter, (array) $row) . '"'));
+				echo(iconv('UTF-8', $this->output_encoding . '//TRANSLIT//IGNORE', '"' . implode($delimiter, (array) $row) . '"'));
 			}
 
 			echo "\r\n";
